@@ -1,0 +1,21 @@
+JSON:
+
+curl -X 'POST' --data '{"stoplight":[1,0,1,0]}' http://10.0.1.249:8080
+
+Set half, full, pattern, or script then set done. The AVR chip looks to done for the next task to perform then sets it to nullstring when complete.
+
+"half"
+<####>
+
+"full"
+<########>
+
+"pattern"
+<@@@@@@>
+
+"script"
+<list>
+	<list>[########delayms]
+
+"done"
+<"s", "f", "p", "x", or "">
