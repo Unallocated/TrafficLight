@@ -1,0 +1,8 @@
+
+cURL:
+
+ /arduino/s/<####> -> set first 4 lights to state
+
+ /arduino/f/<########> -> set all the lights to state
+
+/arduino/p/<name> -. run special pattern name
