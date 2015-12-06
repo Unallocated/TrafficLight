@@ -2,8 +2,11 @@
 //Date: 11/8/2014 - Chris
 //Desc: 
 //**************************************
-//Modified 3/7/2014 - Chris
-//Desc
+//Modified 3/7/2015 - Chris
+//Desc:
+//**************************************
+//Modified 12/5/2015 - Chris
+//Desc: 
 //**************************************
 
 #include <Bridge.h>
@@ -16,6 +19,7 @@ YunServer server;
 
 //pin order for lights
 int pins[8] = {2, 3, 4, 5, 6, 7, 8, 9};
+int LightStatus[8] = {0, 0, 0, 0, 0, 0};
 
 //JSON object  name
 char half[4], full[8], pattern[6], *script, done[2];
@@ -67,20 +71,39 @@ void loop()
     
     Bridge.put ("done","");
   }
-  else if (done[0] =='s')
+  else if (done[0] == 's')
   {
     int y = Bridge.get("full", full, 8);
     
     Bridge.put ("done","");
   }
-  else if (done[0] =='p')
+  else if (done[0] == 'p')
   {
     //how to get pattern name?
   
     Bridge.put ("done","");
   }
+  else if (done[0] == 'g')
+  {
+    //request to get status of all lights
 
-  delay(5000);  
+    Bridge.put ("done", GetLightStatus ())
+  }
+
+  delay(500);  
+}
+
+String GetLightStatus ()
+{
+  String temp = "";
+  for (int i = 0; i <= 7; i++)
+  {
+    if (LightStatus[i] == 1)
+      temp += "1";
+    else
+      temp += "0";
+  }
+  return (temp);
 }
 
 void QuerrySpaceStatus ()
@@ -302,5 +325,3 @@ void BlinkRandom8 ()
   delay (200);
   digitalWrite( pins[p], LOW);
 }
-
-
