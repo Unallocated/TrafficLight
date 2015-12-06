@@ -1,4 +1,4 @@
 password: Unall0cated
-IP: 10.0.1.249
-
+Deploy IP: 10.0.1.249
+Test IP: 10.0.0.249
 Disable Wifi
