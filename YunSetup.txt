@@ -1,0 +1,4 @@
+password: Unall0cated
+IP: 10.0.1.249
+
+Disable Wifi
